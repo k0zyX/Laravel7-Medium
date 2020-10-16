@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use App\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -33,5 +34,16 @@ class PostController extends Controller
         $posts = Posts::find($id);
         $posts->delete();
         return view("zgenadmin.index");
+    }
+    public function getCategories(){
+        $categories = Posts::all();
+        return view("zgenadmin.categories",["categories" => $categories]);
+    }
+    public function addCategories(Request $request){
+        $categories = new Categories();
+        $categories->category = $request->input("categories");
+        $categories->save();
+        return redirect("/panel/addcategories");
+        
     }
 }

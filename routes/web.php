@@ -23,4 +23,6 @@ Route::group([ 'prefix' => 'panel' ], function() {
     Route::post('/addpost', 'PostController@addpost');
     Route::get('/remove', 'PostController@removeGet');
     Route::get('/remove/{id}', 'PostController@removePost');
+    Route::get('/addcategories', 'PostController@getCategories');
+    Route::post('/addcategories', 'PostController@addCategories');
 });

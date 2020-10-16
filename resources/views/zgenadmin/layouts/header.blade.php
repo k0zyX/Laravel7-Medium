@@ -101,5 +101,11 @@
                 <i class="mdi mdi-playlist-remove menu-icon"></i>
               </a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url("/panel/addcategories") }}">
+                <span class="menu-title">Add Categories</span>
+                <i class="mdi mdi-playlist-remove menu-icon"></i>
+              </a>
+            </li>
           </ul>
         </nav>

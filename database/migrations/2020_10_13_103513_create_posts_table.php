@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->string("header");
             $table->longText("content");
             $table->integer("hit");
+            $table->string("imageUrl")->nullable();
             $table->timestamps();
         });
     }
