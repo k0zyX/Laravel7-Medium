@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('zgenwebsite.index');
-});
+Route::get('/', "PostController@websiteindex");
+
 Route::group([ 'prefix' => 'panel' ], function() {
     Route::get('/', 'PostController@index');
     Route::get('/dashboard', 'PostController@index');

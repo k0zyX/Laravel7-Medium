@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    // Admin Controllers
     public function index(){
         return view("zgenadmin.index");
     }
@@ -45,5 +46,15 @@ class PostController extends Controller
         $categories->save();
         return redirect("/panel/addcategories");
         
+    }
+
+    // Website Controllers
+
+    public function websiteindex(){
+        $posts = Posts::select("*")
+                        ->take(12)
+                        ->orderBy("created_at","desc")
+                        ->get();
+        return view("zgenwebsite.index",["posts" => $posts]);
     }
 }
