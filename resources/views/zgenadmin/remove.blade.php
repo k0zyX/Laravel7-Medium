@@ -24,12 +24,17 @@
                   </thead>
                   <tbody>
                     @foreach ($posts as $post)
+                    @php
+                        $oldDate = $post->created_at;
+			                  $date = strtotime($oldDate);
+			                  $newDate = date("d F Y",$date);
+                    @endphp
                         <tr>
                             <td> {{$post->id}} </td>
                             <td> {{$post->header}}</td>
                             <td> <label class="badge badge-gradient-success">{{$post->categories}}</label></td>
                             <td> {{$post->hit}} </td>
-                            <td> {{$post->created_at}} </td>
+                            <td> {{$newDate}} </td>
                             <td> <a href="/panel/remove/{{$post->id}}"> <button type="button" class="btn btn-outline-danger btn-sm">Delete Post</button> </a></td>
                         </tr>
                     @endforeach
