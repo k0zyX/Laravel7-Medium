@@ -63,6 +63,7 @@ class PostController extends Controller
         ->take(4)
         ->orderBy("hit","desc")
         ->get();
+        //$categories = Categories::select(["categories","id"]);
         return view("zgenwebsite.index",["posts" => $posts,"hitPosts"=> $hitPosts]);
     }
 
