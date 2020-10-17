@@ -1,4 +1,12 @@
 @include('zgenwebsite.layouts.header')
+@extends('zgenwebsite.layouts.header')
+@section('cats')
+	@foreach ($categories as $category)
+		<li class="nav-item">
+			<a class="nav-link" href="index.html">{{ $category["category"] }} <span class="sr-only">(current)</span></a>
+		</li>
+	@endforeach
+@endsection
 
 <!-- Begin Site Title
 ================================================== -->
