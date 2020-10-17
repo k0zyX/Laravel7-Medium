@@ -55,6 +55,20 @@ class PostController extends Controller
                         ->take(12)
                         ->orderBy("created_at","desc")
                         ->get();
-        return view("zgenwebsite.index",["posts" => $posts]);
+        $hitPosts = Posts::select("*")
+        ->take(4)
+        ->orderBy("hit","desc")
+        ->get();
+        return view("zgenwebsite.index",["posts" => $posts,"hitPosts"=> $hitPosts]);
     }
-}
+
+    // Slug Controller
+    public function show($slug) {
+        $slug = explode('/', $slug);
+        if(isset($slug[1])) {
+            return 'Post Çek';
+        } else {
+            return 'Kategori postlarını çek';
+        }
+    }
+} 

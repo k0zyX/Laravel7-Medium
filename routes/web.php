@@ -25,3 +25,7 @@ Route::group([ 'prefix' => 'panel' ], function() {
     Route::get('/addcategories', 'PostController@getCategories');
     Route::post('/addcategories', 'PostController@addCategories');
 });
+
+// Catch all page controller (place at the very bottom)
+Route::get('{slug}', 'PostController@show')
+    ->where('slug', '([A-Za-z0-9\-\/]+)');
