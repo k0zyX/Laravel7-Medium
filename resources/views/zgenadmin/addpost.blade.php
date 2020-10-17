@@ -21,8 +21,9 @@
                 <div class="form-group">
                   <label for="selectCat">Select a category</label>
                   <select class="form-control" id="selectCat" name="categories">
-                    <option>Male</option>
-                    <option>Female</option>
+                    @foreach ($category as $cat)
+                      <option>{{$cat["category"]}}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="form-group">

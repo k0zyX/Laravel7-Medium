@@ -14,7 +14,10 @@ class PostController extends Controller
         return view("zgenadmin.index");
     }
     public function addPostScreen(){
-        return view("zgenadmin.addpost");
+        $cats = Categories::select("category")
+        ->orderBy("category","asc")
+        ->get();
+        return view("zgenadmin.addpost",["category"=>$cats]);
     }
     public function addPost(Request $request){
         $posts = new Posts();
