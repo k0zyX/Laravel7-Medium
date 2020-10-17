@@ -14,15 +14,16 @@ class PostController extends Controller
         return view("zgenadmin.index");
     }
     public function addPostScreen(){
-        $cats = Categories::select("category")
+        $cats = Categories::select(["category","id"])
         ->orderBy("category","asc")
         ->get();
         return view("zgenadmin.addpost",["category"=>$cats]);
     }
     public function addPost(Request $request){
         $posts = new Posts();
+        $categories = (int) $request->input("categories");
         $posts->uuid = (string) Str::uuid();
-        $posts->categories = $request->input("categories");
+        $posts->categories = $categories;
         $posts->header = $request->input("header");
         $posts->content = $request->input("content");
         $posts->hit = 0;

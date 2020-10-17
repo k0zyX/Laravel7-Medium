@@ -22,7 +22,7 @@
                   <label for="selectCat">Select a category</label>
                   <select class="form-control" id="selectCat" name="categories">
                     @foreach ($category as $cat)
-                      <option>{{$cat["category"]}}</option>
+                      <option value="{{$cat['id']}}">{{$cat["category"]}}</option>
                     @endforeach
                   </select>
                 </div>
